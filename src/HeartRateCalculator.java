@@ -7,7 +7,7 @@ public class HeartRateCalculator {
 
         // Validation and parsing
         try {
-            //calls to parseMonth, which is below.
+            // Calls to parseMonth, which is below.
             birthMonthValue = parseMonth(birthMonth);
         } catch (IllegalArgumentException ex) {
             gui.displayErrorMessage(ex.getMessage());
@@ -15,7 +15,7 @@ public class HeartRateCalculator {
         }
 
         try {
-            //since I only expect number values for birth day, I don't need another method.
+            // Since I only expect number values for birth day, I don't need another method.
             birthDayValue = Integer.parseInt(birthDay);
             if (birthDayValue < 1 || birthDayValue > 31) {
                 gui.displayErrorMessage("Birth day must be between 1 and 31");
@@ -28,7 +28,7 @@ public class HeartRateCalculator {
 
         try {
             birthYearValue = Integer.parseInt(birthYear);
-            //I am assuming here the user is not a baby or long since dead. I feel like this is safe to assume.
+            // I am assuming here the user is not a baby or long since dead. I feel like this is safe to assume.
             if (birthYearValue < 1900 || birthYearValue > 2023) {
                 gui.displayErrorMessage("Please enter your real birth year.");
                 return;
@@ -54,8 +54,8 @@ public class HeartRateCalculator {
         );
     }
 
-    //I really wanted it to allow you to type the full name of the month instead of just using numbers,
-    //but I also allowed you to use numbers if you'd like as well.
+    // I really wanted it to allow you to type the full name of the month instead of just using numbers,
+    // but I also allowed you to use numbers if you'd like as well.
     private static int parseMonth(String input) {
         // Check if input contains only digits
         boolean isNumeric = input.chars().allMatch(Character::isDigit);

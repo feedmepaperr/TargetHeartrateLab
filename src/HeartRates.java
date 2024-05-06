@@ -1,48 +1,17 @@
 import java.util.Calendar;
 
-public class HeartRates {
-    private final String firstName;
-    private final String lastName;
-    private final int birthMonth;
-    private final int birthDay;
-    private final int birthYear;
-
-    public HeartRates(String firstName, String lastName, int birthMonth, int birthDay, int birthYear) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthMonth = birthMonth;
-        this.birthDay = birthDay;
-        this.birthYear = birthYear;
-    }
-
-    // Getter methods
-    public String firstName() {
-        return firstName;
-    }
-
-    public String lastName() {
-        return lastName;
-    }
-
-    public int birthMonth() {
-        return birthMonth;
-    }
-
-    public int birthDay() {
-        return birthDay;
-    }
-
-    public int birthYear() {
-        return birthYear;
-    }
+public record HeartRates(String firstName, String lastName, int birthMonth, int birthDay, int birthYear) {
 
     // Method to calculate age
     public int calculateAge() {
+
+        // Finds what time it is now, to figure out how old you are.
         Calendar now = Calendar.getInstance();
         int currentYear = now.get(Calendar.YEAR);
         int currentMonth = now.get(Calendar.MONTH) + 1;
         int currentDay = now.get(Calendar.DAY_OF_MONTH);
 
+        // Checks to make sure the user has or has not had their birthday yet this year
         int age = currentYear - birthYear;
         if (currentMonth < birthMonth || (currentMonth == birthMonth && currentDay < birthDay)) {
             age--;
